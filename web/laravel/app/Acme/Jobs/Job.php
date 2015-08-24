@@ -1,6 +1,4 @@
-<?php
-
-namespace Acme\Jobs;
+<?php namespace Acme\Jobs;
 
 use Acme\Eventing\EventGenerator;
 use Eloquent;
@@ -23,6 +21,14 @@ class Job extends Eloquent {
         $job->raise(new JobWasPosted($job));
 
         return $job;
+    }
+
+    public function archive()
+    {
+        $this->raise(new JobWasFilled($this));
+
+        $this->delete();
+
     }
 
 }

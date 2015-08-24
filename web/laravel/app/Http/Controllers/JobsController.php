@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Acme\Jobs\PostJobListingCommand;
 use App\Http\Controllers\BaseController;
 use Input;
+use Acme\Jobs\JobFilledCommand;
 
 class JobsController extends BaseController {
 
@@ -23,4 +24,17 @@ class JobsController extends BaseController {
         $this->commandBus->execute($command);
 
     }
+
+    /**
+     * Set job as filled
+     * @param jobId
+     * @return response
+     */
+    public function delete($jobId)
+    {
+        $command = new JobFilledCommand($jobId);
+
+        $this->commandBus->execute($command);
+    }
+
 }
