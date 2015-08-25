@@ -26,3 +26,6 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('jobs/store', 'JobsController@store');
 Route::get('jobs/delete/{id}', 'JobsController@delete');
+
+Route::get('reports', 'ReportsController@index');
+
