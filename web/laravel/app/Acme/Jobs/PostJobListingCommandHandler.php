@@ -1,6 +1,4 @@
-<?php
-
-namespace Acme\Jobs;
+<?php namespace Acme\Jobs;
 
 use Acme\Commanding\CommandHandler;
 use Acme\Eventing\EventDispatcher;
@@ -25,7 +23,6 @@ class PostJobListingCommandHandler implements CommandHandler{
         $job = Job::post($command->title,$command->description);
 
         $this->dispatcher->dispatch($job->releaseEvents());
-
     }
 
 }
