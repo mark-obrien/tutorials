@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Acme\Jobs\PostJobListingCommand;
-use App\Http\Controllers\BaseController;
 use Input;
 use Acme\Jobs\JobFilledCommand;
 
@@ -16,13 +15,11 @@ class JobsController extends BaseController {
      */
     public function store()
     {
-
         $input = Input::only('title', 'description');
 
         $command = new PostJobListingCommand($input['title'], $input['description']);
 
         $this->commandBus->execute($command);
-
     }
 
     /**
