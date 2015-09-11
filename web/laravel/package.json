@@ -1,7 +1,13 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "babel-plugin-undeclared-variables-check": "^1.0.2",
+    "detect-indent": "^4.0.0",
+    "gulp": "^3.9.0",
+    "gulp-if": "^1.2.5",
+    "gulp-util": "^3.0.6",
+    "json5": "^0.4.0",
+    "repeating": "^2.0.0"
   },
   "dependencies": {
     "laravel-elixir": "^2.0.0",
