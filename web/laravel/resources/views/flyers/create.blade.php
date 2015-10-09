@@ -4,7 +4,7 @@
 @section('content')
 <h1>Selling Your Home?</h1>
     <hr>
-    <form method="post" enctype="multipart/form-data" action="/flyers">
+    <form method="post" enctype="multipart/form-data" action="/flyers" class="col-md-6">
         @include('flyers.form')
     </form>
 @stop

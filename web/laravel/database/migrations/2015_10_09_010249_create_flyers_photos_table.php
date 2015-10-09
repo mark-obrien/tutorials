@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobsTable extends Migration
+class CreateFlyersPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,13 @@ class CreateJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('jobs', function(Blueprint $table){
+        Schema::create('flyer_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('description');
+            $table->integer('flyer_id')->unsigned();
+            $table->string('photo_path');
             $table->timestamps();
+
+            $table->foreign('flyer_id')->references('id')->on('flyers')->onDelete('cascade');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('flyer_photos');
     }
 }
